@@ -36,4 +36,5 @@ vert
 
 # Data files
 *.data
+*.names
 *.pdf
