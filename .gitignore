@@ -37,4 +37,5 @@ spiral
 
 # Data files
 *.data
+*.names
 *.pdf

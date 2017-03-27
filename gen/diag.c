@@ -22,32 +22,46 @@ int main(int argc, char **argv) {
     int n = atoi(argv[2]);
     double C = atof(argv[3]);
     double sigma = C * sqrt(d);
-    char* outfile = argv[4];
+    char *output = argv[4];
     
     printf("d := %d | n := %d | sigma := %f | output := \"%s\"\n", 
-            d, n, sigma, outfile);
+            d, n, sigma, output);
 
     
-    // Open the output file
-    FILE *out = fopen(outfile, "wb");
-    if (!out) { printf("Error while opening %s\n", outfile); exit(1); }
+    // Create the output filenames
+    char *data_path, *names_path;
+    asprintf(&data_path, "%s.data", output);
+    asprintf(&names_path, "%s.names", output);
+    
+    // Generate the data file
+    FILE *data_file = fopen(data_path, "wb");
+    if (!data_file) { printf("Error while opening %s\n", data_path); exit(1); }
 
     
-    // Generate 0-class values centered on (-1, -1, ... , -1)
+    // Append 0-class values centered on (-1, -1, ... , -1)
     int zeroes = n / 2;
     for (int i=0; i < zeroes; i++) { 
-        for (int j=0; j<d; j++) fprintf(out, "%f,\t", normal_rand(-1, sigma));
-        fprintf(out, "0\n");
+        for (int j=0; j<d; j++) fprintf(data_file, "%f,\t", normal_rand(-1, sigma));
+        fprintf(data_file, "0\n");
     }
 
-    // Generate 1-class values centered on (1, 1, ... , 1)
+    // Append 1-class values centered on (1, 1, ... , 1)
     int ones = n - zeroes;
     for (int i=0; i < ones; i++) { 
-        for (int j=0; j<d; j++) fprintf(out, "%f,\t", normal_rand(1, sigma));
-        fprintf(out, "1\n");
+        for (int j=0; j<d; j++) fprintf(data_file, "%f,\t", normal_rand(1, sigma));
+        fprintf(data_file, "1\n");
     }
 
-    fclose(out);
+    // Generate the header file
+    FILE *names_file = fopen(names_path, "wb");
+    if (!names_file) { printf("Error while opening %s\n", names_path); exit(1); }
+    
+    fprintf(names_file, "0, 1.\n");
+    for (int i=0; i<d; i++) fprintf(names_file, "x%d: continous.\n", i);
+
+    // Cleanup
+    fclose(data_file);
+    fclose(names_file);
     printf("Finished!\n");
     return 0;
 }

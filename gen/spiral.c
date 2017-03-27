@@ -39,14 +39,19 @@ int main(int argc, char **argv) {
     if (argc != 3) { print_usage(argv[0]); exit(1); }
     
     int n = atoi(argv[1]);
-    char* outfile = argv[2];
-    printf("n := %d | output := \"%s\"\n", n, outfile);
+    char *output = argv[2];
+    printf("n := %d | output := \"%s\"\n", n, output);
     
-    // Open the output file
-    FILE *out = fopen(outfile, "wb");
-    if (!out) { printf("Error while opening %s\n", outfile); exit(1); }
+    // Create the output filenames
+    char *data_path, *names_path;
+    asprintf(&data_path, "%s.data", output);
+    asprintf(&names_path, "%s.names", output);
+    
+    // Generate the data file
+    FILE *data_file = fopen(data_path, "wb");
+    if (!data_file) { printf("Error while opening %s\n", data_path); exit(1); }
 
-    // Generate points from both classes    
+    // Append points from both classes    
     for (int i=0; i<n; i++) {
         double x, y;
         int class = i < n/2 ? 0 : 1;
@@ -56,11 +61,20 @@ int main(int argc, char **argv) {
             y = uniform_rand(-RADIUS, RADIUS);
         } while (rho(x,y) > RADIUS || classify(x,y) != class); 
 
-        fprintf(out, "%f, %f, %d\n", x, y, class);
+        fprintf(data_file, "%f, %f, %d\n", x, y, class);
 
     }
+    
+    // Generate the header file
+    FILE *names_file = fopen(names_path, "wb");
+    if (!names_file) { printf("Error while opening %s\n", names_path); exit(1); }
+    
+    fprintf(names_file, "0, 1.\n");
+    for (int i=0; i<2; i++) fprintf(names_file, "x%d: continous.\n", i);
 
-    fclose(out);
+    // Cleanup
+    fclose(data_file);
+    fclose(names_file);
     printf("Finished!\n");
     return 0;
 }
