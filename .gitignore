@@ -3,6 +3,8 @@
 *.ko
 *.obj
 *.elf
+diag
+vert
 
 # Precompiled Headers
 *.gch
@@ -31,3 +33,7 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Data files
+*.data
+*.pdf
