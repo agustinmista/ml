@@ -5,6 +5,7 @@
 *.elf
 diag
 vert
+spiral
 
 # Precompiled Headers
 *.gch

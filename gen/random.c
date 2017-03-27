@@ -25,8 +25,7 @@ double normal_rand(double mu, double sigma){
     double lower = mu - 5 * sigma;
     double upper = mu + 5 * sigma;
     
-    double x = uniform_rand(lower, upper);
-    double y = uniform_rand(0, 1);
+    double x, y;
 
     do {
         x = uniform_rand(lower, upper);
@@ -35,3 +34,7 @@ double normal_rand(double mu, double sigma){
 
     return x;
 }
+
+
+
+
