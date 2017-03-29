@@ -24,21 +24,25 @@ int main(int argc, char **argv) {
     double sigma = C * sqrt(d);
     char *output = argv[4];
     
-    printf("d := %d | n := %d | sigma := %f | output := \"%s\"\n", 
+    if (C <= 0) { printf("Constant C must be positive. Aborting.\n"); exit(1); } 
+    
+    printf("Generating dateset:\n"
+           "\td := %d\n"
+           "\tn := %d\n"
+           "\tsigma := %f\n"
+           "\toutput := \"%s\"\n", 
             d, n, sigma, output);
-
     
     // Create the output filenames
     char *data_path, *names_path;
     asprintf(&data_path, "%s.data", output);
     asprintf(&names_path, "%s.names", output);
     
-    // Generate the data file
+    // Open the .data file
     FILE *data_file = fopen(data_path, "wb");
     if (!data_file) { printf("Error while opening %s\n", data_path); exit(1); }
-
     
-    // Append 0-class values centered on (-1, -1, ... , -1)
+    // Append 0-class values centered on (-1, 0, ... , 0)
     int zeroes = n / 2;
     for (int i=0; i < zeroes; i++) { 
         fprintf(data_file, "%f,\t", normal_rand(-1, sigma));
@@ -46,7 +50,7 @@ int main(int argc, char **argv) {
         fprintf(data_file, "0\n");
     }
 
-    // Append 1-class values centered on (1, 1, ... , 1)
+    // Append 1-class values centered on (1, 0, ... , 0)
     int ones = n - zeroes;
     for (int i=0; i < ones; i++) { 
         fprintf(data_file, "%f,\t", normal_rand(1, sigma));
@@ -54,10 +58,11 @@ int main(int argc, char **argv) {
         fprintf(data_file, "1\n");
     }
 
-    // Generate the header file
+    // Open the .names file
     FILE *names_file = fopen(names_path, "wb");
     if (!names_file) { printf("Error while opening %s\n", names_path); exit(1); }
     
+    // Append classes and vars identifiers.
     fprintf(names_file, "0, 1.\n");
     for (int i=0; i<d; i++) fprintf(names_file, "x%d: continous.\n", i);
 
