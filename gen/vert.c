@@ -20,11 +20,10 @@ int main(int argc, char **argv) {
     
     int d = atoi(argv[1]);
     int n = atoi(argv[2]);
-    double C = atof(argv[3]);
-    double sigma = C * sqrt(d);
+    double sigma = atof(argv[3]);
     char *output = argv[4];
     
-    if (C <= 0) { printf("Constant C must be positive. Aborting.\n"); exit(1); } 
+    if (sigma <= 0) { printf("Constant C must be positive. Aborting.\n"); exit(1); } 
     
     printf("Generating dateset:\n"
            "\td := %d\n"
