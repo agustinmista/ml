@@ -13,7 +13,8 @@
 
 #include <math.h>
 #include <stdio.h>
-
+#include <string.h>
+#include <stdlib.h>
 
 long	random();
 #define	randf			((random()&2147483647) / 2147483648.0)

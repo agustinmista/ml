@@ -17,7 +17,7 @@
 #	      CFLAGS = -O3 etc
 
 
-CFLAGS = -O2 -Wno-return-type
+CFLAGS = -O2
 
 
 #	Definitions of file sets

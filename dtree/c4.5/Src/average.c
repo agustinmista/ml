@@ -8,7 +8,7 @@
 /*									 */
 /*************************************************************************/
 
-
+#include <stdlib.h>
 #include <stdio.h>
 
 #define	MAXLINE		200	/* max line length */
@@ -48,7 +48,7 @@ main()
 
 	if ( Lines )
 	{
-	    if ( i != Numbers ) exit();
+	    if ( i != Numbers ) exit(1);
 	}
 	else
 	{

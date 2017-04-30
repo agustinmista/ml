@@ -30,12 +30,21 @@ spiral
 *.i*86
 *.x86_64
 *.hex
+dtree/c4.5/Src/average
+dtree/c4.5/Src/c4.5
+dtree/c4.5/Src/c4.5rules
+dtree/c4.5/Src/consult
+dtree/c4.5/Src/consultr
+dtree/c4.5/Src/xval-prep
+
 
 # Debug files
 *.dSYM/
 *.su
 
 # Data files
-*.data
-*.names
+gen/*.names
+gen/*.data
+*.tree
+*.unpruned
 *.pdf
