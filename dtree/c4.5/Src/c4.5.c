@@ -8,6 +8,9 @@
 
 #include "defns.i"
 #include "types.i"
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
 
 
     /*  External data, described in extern.i  */

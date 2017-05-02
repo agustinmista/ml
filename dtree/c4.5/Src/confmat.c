@@ -8,6 +8,9 @@
 #include "defns.i"
 #include "types.i"
 #include "extern.i"
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
 
 
     PrintConfusionMatrix(ConfusionMat)

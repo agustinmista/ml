@@ -5,6 +5,9 @@
 /*								   	 */
 /*************************************************************************/
 
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
 
 #include "defns.i"
 #include "types.i"

@@ -17,8 +17,7 @@
 #	      CFLAGS = -O3 etc
 
 
-CFLAGS = -O2
-
+CFLAGS = -O3 -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 
 #	Definitions of file sets
 
@@ -116,6 +115,8 @@ all:
 	cc -o xval-prep xval-prep.c
 	cc -o average average.c -lm
 
+clean:
+	rm *.o
 
 $(trees): defns.i types.i extern.i
 $(rules): defns.i types.i extern.i

@@ -8,6 +8,11 @@
 
 #define  RELEASE "8"
 
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
+
+
 
     PrintHeader(Title)
 /*  -----------  */

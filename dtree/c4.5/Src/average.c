@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define	MAXLINE		200	/* max line length */
 #define MAXVALS		 10	/* max values to be averaged */

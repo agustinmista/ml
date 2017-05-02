@@ -9,6 +9,10 @@
 #include "defns.i"
 #include "types.i"
 #include "extern.i"
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
+
 
 float	*ClassSum=Nil;		/* ClassSum[c] = total weight of class c */
 

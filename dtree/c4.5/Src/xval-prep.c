@@ -9,6 +9,9 @@
 /*	as possible in each block.					 */
 /*									 */
 /*************************************************************************/
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
 
 
 #include <math.h>
