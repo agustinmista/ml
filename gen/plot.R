@@ -31,10 +31,10 @@ message(paste("1\U03BC = (X := ", mean(ones$X),   ", Y := ", mean(ones$Y),   ")"
 message(paste("0\U03C3 = (X := ", sd(zeroes$X),   ", Y := ", sd(zeroes$Y),   ")", sep=""))
 message(paste("0\U03BC = (X := ", mean(zeroes$X), ", Y := ", mean(zeroes$Y), ")", sep=""))
 
-output <- paste(input, ".pdf", sep="")
+output <- paste(input, ".png", sep="")
 message(paste("Saving plot to", output))
 
-pdf(output)
+png(output)
 plot(zeroes$X, zeroes$Y, col="red"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "X", ylab = "Y"
@@ -42,10 +42,3 @@ plot(zeroes$X, zeroes$Y, col="red"
     )
 
 points(ones$X, ones$Y, col="green", pch = 20, cex = .5)
-
-abline(v = mean(zeroes$X), col = "darkred", lty = "dashed")
-abline(h = mean(zeroes$Y), col = "darkred", lty = "dashed")
-abline(v = mean(ones$X), col = "darkgreen", lty = "dashed")
-abline(h = mean(ones$Y), col = "darkgreen", lty = "dashed")
-
-

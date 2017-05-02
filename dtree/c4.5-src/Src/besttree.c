@@ -422,9 +422,9 @@ Tree Iterate(Window, IncExceptions)
 	    if ( CMInfo ){
 		  ForEach(Att, 0, MaxAtt){
 	        if ( SpecialStatus[Att] == DISCRETE || MaxAttVal[Att] ){
-	          fprintf(predicted_output,"%d\t",DVal(Item[i],Att));
+	          fprintf(predicted_output,"%d,",DVal(Item[i],Att));
   	        }else if ( SpecialStatus[Att] != IGNORE  ){
-		      fprintf(predicted_output,"%f\t",CVal(Item[i],Att));
+		      fprintf(predicted_output,"%f,",CVal(Item[i],Att));
 		    }
 	      }
 	      fprintf(predicted_output,"%d\n",PrunedClass);
