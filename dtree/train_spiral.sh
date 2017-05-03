@@ -21,5 +21,7 @@ do
 	$DTREEGEN -u -f $DATASETS/spiral$size 		&>> $DATASETS/spiral$size.report
 	$PLOTTER $DATASETS/spiral$size.data 		&>> $DATASETS/spiral$size.report
 	$PLOTTER $DATASETS/spiral$size.prediction 	&>> $DATASETS/spiral$size.report
+    mv $DATASETS/spiral$size.data.png doc/
+    mv $DATASETS/spiral$size.prediction.png doc/
 done
 
