@@ -18,7 +18,7 @@ minY <- min(values_diagonal$ebp_test, values_diagonal$ebp_train, values_parallel
 maxY <- max(values_diagonal$ebp_test, values_diagonal$ebp_train, values_parallel$ebp_test, values_parallel$ebp_train)
 
 # Plot before prunning data
-output_before_prunning <- paste("doc/error_before_prunning.png")
+output_before_prunning <- paste("doc/sized_error_before_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$ebp_train, col="red"
@@ -46,7 +46,7 @@ legend(  x="topright"
 minY <- min(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 maxY <- max(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 
-output_before_prunning <- paste("doc/error_after_prunning.png")
+output_before_prunning <- paste("doc/sized_error_after_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$eap_train, col="red"

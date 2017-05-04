@@ -18,7 +18,7 @@ minY <- min(values_diagonal$sbp, values_parallel$sbp, values_diagonal$sap, value
 maxY <- max(values_diagonal$sbp, values_parallel$sbp, values_diagonal$sap, values_parallel$sap)
 
 # Plot before prunning data
-output_before_prunning <- paste("doc/size_before_prunning.png")
+output_before_prunning <- paste("doc/sized_size_before_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$sbp, col="red"
@@ -41,7 +41,7 @@ legend(  x="topleft"
        )
 
 ## Plot after prunning data
-output_after_prunning <- paste("doc/size_after_prunning.png")
+output_after_prunning <- paste("doc/sized_size_after_prunning.png")
 
 png(output_after_prunning)
 plot(values_diagonal$size, values_diagonal$sap, col="red"

@@ -30,19 +30,23 @@ spiral
 *.i*86
 *.x86_64
 *.hex
-dtree/c4.5/Src/average
-dtree/c4.5/Src/c4.5
-dtree/c4.5/Src/c4.5rules
-dtree/c4.5/Src/consult
-dtree/c4.5/Src/consultr
-dtree/c4.5/Src/xval-prep
-
+dtree/c4.5-src/Src/average
+dtree/c4.5-src/Src/c4.5
+dtree/c4.5-src/Src/c4.5rules
+dtree/c4.5-src/Src/consult
+dtree/c4.5-src/Src/consultr
+dtree/c4.5-src/Src/xval-prep
+gen/parallel
+gen/diagonal
+gen/spiral
 
 # Debug files
 *.dSYM/
 *.su
 
 # Data files
+dtree/datasets/parallel*
+dtree/datasets/diagonal*
 gen/*.names
 gen/*.data
 *.tree

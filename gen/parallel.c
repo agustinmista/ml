@@ -25,11 +25,7 @@ int main(int argc, char **argv) {
     
     if (sigma <= 0) { printf("Constant C must be positive. Aborting.\n"); exit(1); } 
     
-    printf("Generating dateset:\n"
-           "\td := %d\n"
-           "\tn := %d\n"
-           "\tsigma := %f\n"
-           "\toutput := \"%s\"\n", 
+    printf("Generating dateset:\td := %d\tn := %d\tsigma := %f\toutput := \"%s\"\n", 
             d, n, sigma, output);
     
     // Create the output filenames
@@ -63,11 +59,10 @@ int main(int argc, char **argv) {
     
     // Append classes and vars identifiers.
     fprintf(names_file, "0, 1.\n");
-    for (int i=0; i<d; i++) fprintf(names_file, "x%d: continous.\n", i);
+    for (int i=0; i<d; i++) fprintf(names_file, "x%d:continuous.\n", i);
 
     // Cleanup
     fclose(data_file);
     fclose(names_file);
-    printf("Finished!\n");
     return 0;
 }

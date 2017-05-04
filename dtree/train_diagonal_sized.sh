@@ -1,7 +1,7 @@
 #!/bin/bash
 
 UNIVERSE_SIZE=10000
-DATASETS=datasets/diagonal_x20
+DATASETS=datasets/diagonal_sized
 TESTFILE=$DATASETS/testfile
 
 DIAGONAL_GEN=../gen/diagonal
@@ -10,7 +10,7 @@ PLOTTER=../gen/plot.R
 
 echo "Generating universe of size $UNIVERSE_SIZE"
 mkdir -p $DATASETS
-rm -r $DATASETS/*
+rm -rf $DATASETS/*
 
 $DIAGONAL_GEN 2 $UNIVERSE_SIZE 0.78 $TESTFILE
 echo "size,ebp_train,ebp_test,eap_train,eap_test" >> $DATASETS/diagonal.error.avg

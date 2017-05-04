@@ -1,7 +1,7 @@
 #!/bin/bash
 
 UNIVERSE_SIZE=10000
-DATASETS=datasets/parallel_x20
+DATASETS=datasets/parallel_sized
 TESTFILE=$DATASETS/testfile
 
 parallel_GEN=../gen/parallel
@@ -10,7 +10,7 @@ PLOTTER=../gen/plot.R
 
 echo "Generating universe of size $UNIVERSE_SIZE"
 mkdir -p $DATASETS
-rm -r $DATASETS/*
+rm -rf $DATASETS/*
 
 $parallel_GEN 2 $UNIVERSE_SIZE 0.78 $TESTFILE
 echo "size,ebp_train,ebp_test,eap_train,eap_test" >> $DATASETS/parallel.error.avg
