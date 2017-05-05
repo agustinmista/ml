@@ -4,8 +4,11 @@
 #include <time.h>
 
 
-void init_random() { srand(time(NULL)); } 
-
+void init_random() { 
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    srand((time_t)ts.tv_nsec); 
+}
 
 double gauss(double x, double mu, double sigma) {
     double var = pow(sigma,  2);

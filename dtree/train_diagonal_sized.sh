@@ -26,7 +26,6 @@ do
 		ln -f $TESTFILE.data $DATASETS/diagonal.$size.$i.test
 		$DIAGONAL_GEN 2 $size 0.78 $DATASETS/diagonal.$size.$i
 		$DTREE_GEN -u -f $DATASETS/diagonal.$size.$i | grep "<<" &>> $DATASETS/diagonal.$size.raw
-        sleep 1
 	done
 
     echo "Generating Error/Tree size CSV file for size $size."

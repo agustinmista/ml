@@ -26,7 +26,6 @@ do
 		ln -f $TESTFILE.data $DATASETS/parallel.$size.$i.test
 		$parallel_GEN 2 $size 0.78 $DATASETS/parallel.$size.$i
 		$DTREE_GEN -u -f $DATASETS/parallel.$size.$i | grep "<<" &>> $DATASETS/parallel.$size.raw
-        sleep 1
 	done
 
     echo "Generating Error/Tree size CSV file for size $size."

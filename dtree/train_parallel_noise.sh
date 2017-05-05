@@ -32,7 +32,6 @@ do
 	    $PARALLEL_GEN $DIMS $SIZE $c $DATASETS/parallel.$c.$i
 	    $DTREE_GEN -u -f $DATASETS/parallel.$c.$i | grep "<<" &>> $DATASETS/parallel.$c.raw
         $BAYES $DATASETS/parallel.$c.$i.data >> $DATASETS/parallel.$c.bayes
-        sleep 1
     done
 
     echo "Generating error file report."

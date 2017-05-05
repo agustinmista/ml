@@ -15,4 +15,4 @@
 ./train_parallel_dimmed.sh
 ./plot_dimmed_error.R datasets/diagonal_dimmed/diagonal.error.avg datasets/parallel_dimmed/parallel.error.avg
 
-./run_xor.R datasets/xor/xor.data
+./plot_xor.R datasets/xor/xor.data

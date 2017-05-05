@@ -32,7 +32,6 @@ do
 	    $DIAGONAL_GEN $DIMS $SIZE $c $DATASETS/diagonal.$c.$i
 	    $DTREE_GEN -u -f $DATASETS/diagonal.$c.$i | grep "<<" &>> $DATASETS/diagonal.$c.raw
         $BAYES $DATASETS/diagonal.$c.$i.data >> $DATASETS/diagonal.$c.bayes
-        sleep 1
     done
 
     echo "Generating error file report."

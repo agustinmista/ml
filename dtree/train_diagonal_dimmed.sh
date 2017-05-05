@@ -29,7 +29,6 @@ do
 	    ln -f $TESTFILE.data $DATASETS/diagonal.$dim.$i.test
 	    $DIAGONAL_GEN $dim $SIZE $C $DATASETS/diagonal.$dim.$i
 	    $DTREE_GEN -u -f $DATASETS/diagonal.$dim.$i | grep "<<" &>> $DATASETS/diagonal.$dim.raw
-        sleep 1
     done
 
     echo "Generating error file report."

@@ -29,7 +29,6 @@ do
 	    ln -f $TESTFILE.data $DATASETS/parallel.$dim.$i.test
 	    $PARALLEL_GEN $dim $SIZE $C $DATASETS/parallel.$dim.$i
 	    $DTREE_GEN -u -f $DATASETS/parallel.$dim.$i | grep "<<" &>> $DATASETS/parallel.$dim.raw
-        sleep 1
     done
 
     echo "Generating error file report."

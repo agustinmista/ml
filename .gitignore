@@ -43,6 +43,7 @@ gen/spiral
 # Debug files
 *.dSYM/
 *.su
+*.log
 
 # Data files
 dtree/datasets/parallel*
