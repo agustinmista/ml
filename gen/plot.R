@@ -35,6 +35,7 @@ output <- paste(input, ".png", sep="")
 message(paste("Saving plot to", output))
 
 png(output)
+par(mar=c(4,4,1,1))
 plot(zeroes$X, zeroes$Y, col="red"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "X", ylab = "Y"

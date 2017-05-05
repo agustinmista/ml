@@ -22,6 +22,7 @@ maxY <- max(values_diagonal$ebp_train, values_parallel$ebp_train,values_diagonal
 
 output_before_prunning <- paste("doc/dimmed_error_before_prunning.png")
 png(output_before_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$dim, values_diagonal$ebp_train, col="red"
     , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
@@ -47,6 +48,7 @@ maxY <- max(values_diagonal$eap_train, values_parallel$eap_train,values_diagonal
 
 output_after_prunning <- paste("doc/dimmed_error_after_prunning.png")
 png(output_after_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$dim, values_diagonal$eap_train, col="red"
     , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)

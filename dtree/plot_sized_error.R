@@ -22,6 +22,7 @@ output_before_prunning <- paste("doc/sized_error_before_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$ebp_train, col="red"
+par(mar=c(4,4,1,1))
     , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "Training size"
@@ -42,13 +43,14 @@ legend(  x="topright"
        , pch=c(NA,NA,NA,NA) 
        )
 
-## Plot after prunning data
+	## Plot after prunning data
 minY <- min(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 maxY <- max(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 
 output_before_prunning <- paste("doc/sized_error_after_prunning.png")
 
 png(output_before_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$size, values_diagonal$eap_train, col="red"
     , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
