@@ -21,6 +21,7 @@ minY <- min(zeroes$Y, ones$Y)
 maxY <- max(zeroes$Y, ones$Y)
 
 png("doc/xor_classes.png")
+par(mar=c(4,4,1,1))
 plot(zeroes$X, zeroes$Y, col="red"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "X", ylab = "Y"

@@ -21,34 +21,36 @@ maxY <- max(values_diagonal$ebp_test, values_diagonal$ebp_train, values_parallel
 output_before_prunning <- paste("doc/sized_error_before_prunning.png")
 
 png(output_before_prunning)
-plot(values_diagonal$size, values_diagonal$ebp_train, col="red"
-    , type = "l"
-    , xlim = c(minX, maxX), ylim = c(minY, maxY)
-    , xlab = "Training dataset size"
-    , ylab = "Error percentage"
-    , lwd = 3
-    )
+par(mar=c(4,4,1,1))
+	plot(values_diagonal$size, values_diagonal$ebp_train, col="red"
+	    , type = "l"
+	    , xlim = c(minX, maxX), ylim = c(minY, maxY)
+	    , xlab = "Training dataset size"
+	    , ylab = "Error percentage"
+	    , lwd = 3
+	    )
 
-lines(values_diagonal$size, values_diagonal$ebp_test, col="red", lwd = 3, lty=2)
-lines(values_parallel$size, values_parallel$ebp_train, col="green", lwd = 3)
-lines(values_parallel$size, values_parallel$ebp_test, col="green", lwd = 3, lty=2)
+	lines(values_diagonal$size, values_diagonal$ebp_test, col="red", lwd = 3, lty=2)
+	lines(values_parallel$size, values_parallel$ebp_train, col="green", lwd = 3)
+	lines(values_parallel$size, values_parallel$ebp_test, col="green", lwd = 3, lty=2)
 
 
-legend(  x="topright"
-       , legend=c("diagonal training dataset","diagonal test dataset", "parallel train dataset", "parrallel test dataset")
-       , col=c("red", "red", "green", "green")
-       , lty=c(1,2,1,2)
-       , lwd=3
-       , pch=c(NA,NA,NA,NA) 
-       )
+	legend(  x="topright"
+	       , legend=c("diagonal training dataset","diagonal test dataset", "parallel train dataset", "parrallel test dataset")
+	       , col=c("red", "red", "green", "green")
+	       , lty=c(1,2,1,2)
+	       , lwd=3
+	       , pch=c(NA,NA,NA,NA) 
+	       )
 
-## Plot after prunning data
-minY <- min(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
+	## Plot after prunning data
+	minY <- min(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 maxY <- max(values_diagonal$eap_test, values_diagonal$eap_train, values_parallel$eap_test, values_parallel$eap_train)
 
 output_before_prunning <- paste("doc/sized_error_after_prunning.png")
 
 png(output_before_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$size, values_diagonal$eap_train, col="red"
     , type = "l"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)

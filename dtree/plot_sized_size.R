@@ -21,6 +21,7 @@ maxY <- max(values_diagonal$sbp, values_parallel$sbp, values_diagonal$sap, value
 output_before_prunning <- paste("doc/sized_size_before_prunning.png")
 
 png(output_before_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$size, values_diagonal$sbp, col="red"
     , type = "l"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
@@ -44,6 +45,7 @@ legend(  x="topleft"
 output_after_prunning <- paste("doc/sized_size_after_prunning.png")
 
 png(output_after_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$size, values_diagonal$sap, col="red"
     , type = "l"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)

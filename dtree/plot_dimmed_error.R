@@ -22,6 +22,7 @@ maxY <- max(values_diagonal$ebp_test, values_parallel$ebp_test)
 
 output_before_prunning <- paste("doc/dimmed_error_before_prunning.png")
 png(output_before_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$dim, values_diagonal$ebp_test, col="red"
     , type = "l"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
@@ -45,6 +46,7 @@ maxY <- max(values_diagonal$eap_test, values_parallel$eap_test)
 
 output_after_prunning <- paste("doc/dimmed_error_after_prunning.png")
 png(output_after_prunning)
+par(mar=c(4,4,1,1))
 plot(values_diagonal$dim, values_diagonal$eap_test, col="red"
     , type = "l"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
