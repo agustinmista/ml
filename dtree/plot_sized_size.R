@@ -22,18 +22,16 @@ output_before_prunning <- paste("doc/sized_size_before_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$sbp, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
-    , xlab = "Training dataset size"
-    , ylab = "Generated tree size"
-    , lwd = 3
+    , xlab = "Training size"
+    , ylab = "Tree size"
+    , lwd = 2
     )
-
-lines(values_parallel$size, values_parallel$sbp, col="green", lwd = 3)
-
+lines(values_parallel$size, values_parallel$sbp, col="green", type = "o", lwd = 2)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel")
+       , legend=c("Diagonal", "Parallel")
        , col=c("red", "green")
        , lty=c(1,1)
        , lwd=3
@@ -45,18 +43,17 @@ output_after_prunning <- paste("doc/sized_size_after_prunning.png")
 
 png(output_after_prunning)
 plot(values_diagonal$size, values_diagonal$sap, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
-    , xlab = "Training dataset size"
-    , ylab = "Generated tree size"
-    , lwd = 3
+    , xlab = "Training size"
+    , ylab = "Tree size"
+    , lwd = 2
     )
 
-lines(values_parallel$size, values_parallel$sap, col="green", lwd = 3)
-
+lines(values_parallel$size, values_parallel$sap, col="green", type = "o", lwd = 3)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel")
+       , legend=c("Diagonal", "Parallel")
        , col=c("red", "green")
        , lty=c(1,1)
        , lwd=3

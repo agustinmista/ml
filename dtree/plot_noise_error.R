@@ -22,21 +22,21 @@ maxY <- max(values_diagonal$ebp_test, values_parallel$ebp_test)
 output_before_prunning <- paste("doc/noise_error_before_prunning.png")
 png(output_before_prunning)
 plot(values_diagonal$c, values_diagonal$ebp_test, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "C dispersion"
     , ylab = "Error percentage"
-    , lwd = 3
+    , lwd = 2
     )
-lines(values_parallel$c, values_parallel$ebp_test, col="green", lwd = 3)
-lines(values_diagonal$c, values_diagonal$bayes, col="red", lwd = 3, lty=3)
-lines(values_parallel$c, values_parallel$bayes, col="green", lwd = 3, lty=3)
+lines(values_parallel$c, values_parallel$ebp_test, col="green", type = "o", lwd = 2)
+lines(values_diagonal$c, values_diagonal$bayes, col="red", type = "o", lwd = 2, lty=3)
+lines(values_parallel$c, values_parallel$bayes, col="green", type = "o", lwd = 2, lty=3)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel", "bayes diagonal", "bayes parallel")
-       , col=c("red", "green", "red", "green")
-       , lty=c(1,1,3,3)
-       , lwd=3
+       , legend=c("Diagonal", "Diagonal Bayes", "Parallel", "Parallel Bayes")
+       , col=c("red", "red", "green", "green")
+       , lty=c(1,3,1,3)
+       , lwd=2
        , pch=c(NA,NA,NA,NA) 
        )
 
@@ -47,20 +47,20 @@ maxY <- max(values_diagonal$eap_test, values_parallel$eap_test)
 output_after_prunning <- paste("doc/noise_error_after_prunning.png")
 png(output_after_prunning)
 plot(values_diagonal$c, values_diagonal$eap_test, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "C dispersion"
     , ylab = "Error percentage"
-    , lwd = 3
+    , lwd = 2
     )
-lines(values_parallel$c, values_parallel$eap_test, col="green", lwd = 3)
-lines(values_diagonal$c, values_diagonal$bayes, col="red", lwd = 3, lty=3)
-lines(values_parallel$c, values_parallel$bayes, col="green", lwd = 3, lty=3)
+lines(values_parallel$c, values_parallel$eap_test, col="green", type = "o", lwd = 2)
+lines(values_diagonal$c, values_diagonal$bayes, col="red", type = "o", lwd = 2, lty=3)
+lines(values_parallel$c, values_parallel$bayes, col="green", type = "o", lwd = 2, lty=3)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel", "bayes diagonal", "bayes parallel")
-       , col=c("red", "green", "red", "green")
-       , lty=c(1,1,3,3)
-       , lwd=3
+       , legend=c("Diagonal", "Diagonal Bayes", "Parallel", "Parallel Bayes")
+       , col=c("red", "red", "green", "green")
+       , lty=c(1,3,1,3)
+       , lwd=2
        , pch=c(NA,NA,NA,NA) 
        )

@@ -22,23 +22,23 @@ output_before_prunning <- paste("doc/sized_error_before_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$ebp_train, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
-    , xlab = "Training dataset size"
+    , xlab = "Training size"
     , ylab = "Error percentage"
-    , lwd = 3
+    , lwd = 2
+    , lty = 3
     )
-
-lines(values_diagonal$size, values_diagonal$ebp_test, col="red", lwd = 3, lty=2)
-lines(values_parallel$size, values_parallel$ebp_train, col="green", lwd = 3)
-lines(values_parallel$size, values_parallel$ebp_test, col="green", lwd = 3, lty=2)
+lines(values_parallel$size, values_parallel$ebp_train, col="green", type = "o", lwd = 2, lty=3)
+lines(values_diagonal$size, values_diagonal$ebp_test, col="red", type = "o", lwd = 2)
+lines(values_parallel$size, values_parallel$ebp_test, col="green", type = "o", lwd = 2)
 
 
 legend(  x="topright"
-       , legend=c("diagonal training dataset","diagonal test dataset", "parallel train dataset", "parrallel test dataset")
+       , legend=c("Diagonal train","Diagonal test", "Parallel train", "Parallel test")
        , col=c("red", "red", "green", "green")
-       , lty=c(1,2,1,2)
-       , lwd=3
+       , lty=c(3,1,3,1)
+       , lwd=2
        , pch=c(NA,NA,NA,NA) 
        )
 
@@ -50,22 +50,23 @@ output_before_prunning <- paste("doc/sized_error_after_prunning.png")
 
 png(output_before_prunning)
 plot(values_diagonal$size, values_diagonal$eap_train, col="red"
-    , type = "l"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "Training dataset size"
     , ylab = "Error percentage"
-    , lwd = 3
+    , lwd = 2
+    , lty=3 
     )
 
-lines(values_diagonal$size, values_diagonal$eap_test, col="red", lwd = 3, lty=2)
-lines(values_parallel$size, values_parallel$eap_train, col="green", lwd = 3)
-lines(values_parallel$size, values_parallel$eap_test, col="green", lwd = 3, lty=2)
+lines(values_parallel$size, values_parallel$eap_train, col="green", type = "o", lty=3)
+lines(values_diagonal$size, values_diagonal$eap_test, col="red", type = "o", lwd = 2)
+lines(values_parallel$size, values_parallel$eap_test, col="green", type = "o", lwd = 2)
 
 
 legend(  x="topright"
-       , legend=c("diagonal training dataset","diagonal test dataset", "parallel train dataset", "parrallel test dataset")
+       , legend=c("Diagonal train","Diagonal test", "Parallel train", "Parallel test")
        , col=c("red", "red", "green", "green")
-       , lty=c(1,2,1,2)
-       , lwd=3
+       , lty=c(3,1,3,1)
+       , lwd=2
        , pch=c(NA,NA,NA,NA) 
        )

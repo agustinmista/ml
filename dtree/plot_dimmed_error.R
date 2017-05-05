@@ -17,47 +17,51 @@ minX <- min(values_diagonal$dim, values_parallel$dim)
 maxX <- max(values_diagonal$dim, values_parallel$dim)
 
 # Plot before prunning data
-minY <- min(values_diagonal$ebp_test, values_parallel$ebp_test)
-maxY <- max(values_diagonal$ebp_test, values_parallel$ebp_test)
+minY <- min(values_diagonal$ebp_train, values_parallel$ebp_train,values_diagonal$ebp_test, values_parallel$ebp_test)
+maxY <- max(values_diagonal$ebp_train, values_parallel$ebp_train,values_diagonal$ebp_test, values_parallel$ebp_test)
 
 output_before_prunning <- paste("doc/dimmed_error_before_prunning.png")
 png(output_before_prunning)
-plot(values_diagonal$dim, values_diagonal$ebp_test, col="red"
-    , type = "l"
+plot(values_diagonal$dim, values_diagonal$ebp_train, col="red"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "Dimensions number"
     , ylab = "Error percentage"
-    , lwd = 3
-    )
-lines(values_parallel$dim, values_parallel$ebp_test, col="green", lwd = 3)
+    , lwd = 2
+    , lty = 3)
+lines(values_parallel$dim, values_parallel$ebp_train, col="green", type = "o", lwd = 2, lty=3)
+lines(values_diagonal$dim, values_diagonal$ebp_test, col="red", type = "o", lwd = 2)
+lines(values_parallel$dim, values_parallel$ebp_test, col="green", type = "o", lwd = 2)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel")
-       , col=c("red", "green")
-       , lty=c(1,1)
+       , legend=c("Diagonal test","Diagonal train",  "Parallel test","Parallel train")
+       , col=c("red", "red", "green", "green")
+       , lty=c(1,3,1,3)
        , lwd=3
-       , pch=c(NA,NA) 
+       , pch=c(NA,NA,NA,NA) 
        )
 
 ## Plot after prunning data
-minY <- min(values_diagonal$eap_test, values_parallel$eap_test)
-maxY <- max(values_diagonal$eap_test, values_parallel$eap_test)
+minY <- min(values_diagonal$eap_train, values_parallel$eap_train,values_diagonal$eap_test, values_parallel$eap_test)
+maxY <- max(values_diagonal$eap_train, values_parallel$eap_train,values_diagonal$eap_test, values_parallel$eap_test)
 
 output_after_prunning <- paste("doc/dimmed_error_after_prunning.png")
 png(output_after_prunning)
-plot(values_diagonal$dim, values_diagonal$eap_test, col="red"
-    , type = "l"
+plot(values_diagonal$dim, values_diagonal$eap_train, col="red"
+    , type = "o"
     , xlim = c(minX, maxX), ylim = c(minY, maxY)
     , xlab = "Dimensions number"
     , ylab = "Error percentage"
-    , lwd = 3
-    )
-lines(values_parallel$dim, values_parallel$eap_test, col="green", lwd = 3)
+    , lwd = 2
+    , lty = 3)
+lines(values_parallel$dim, values_parallel$eap_train, col="green", type = "o", lwd = 3, lty=3)
+lines(values_diagonal$dim, values_diagonal$eap_test, col="red", type = "o", lwd = 3)
+lines(values_parallel$dim, values_parallel$eap_test, col="green", type = "o", lwd = 3)
 
 legend(  x="topleft"
-       , legend=c("diagonal", "parallel")
-       , col=c("red", "green")
-       , lty=c(1,1)
+       , legend=c("Diagonal test","Diagonal train",  "Parallel test","Parallel train")
+       , col=c("red", "red", "green", "green")
+       , lty=c(1,3,1,3)
        , lwd=3
-       , pch=c(NA,NA) 
+       , pch=c(NA,NA,NA,NA) 
        )
