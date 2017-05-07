@@ -27,5 +27,8 @@ plot(zeroes$X, zeroes$Y, col="red"
     , xlab = "X", ylab = "Y"
     , pch = 20, cex = .5
     )
-
+rect(-1.5,1.5,0,0, col=rgb(0,1,0,0.02), border=NA)
+rect(0,0,1.5,-1.5, col=rgb(0,1,0,0.02), border=NA)
+rect(0,0,1.5,1.5,  col=rgb(1,0,0,0.02), border=NA)
+rect(-1.5,-1.5,0,0,col=rgb(1,0,0,0.02), border=NA)
 points(ones$X, ones$Y, col="green", pch = 20, cex = .5)
