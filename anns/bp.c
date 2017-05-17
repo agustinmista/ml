@@ -318,15 +318,19 @@ int read_data(char *filename){
     return 1;
   }
 
-  if(CONTROL>1) printf("\n\nDatos de entrenamiento:");
+  if(CONTROL>1) printf("\nDatos de entrenamiento:");
 
   for(k=0;k<PTOT;k++){
 	 if(CONTROL>1) printf("\nP%d:\t",k);
 	 data[k][0]=-1.0;
  	 for(i=1;i<=N1+N3;i++){
 	   fscanf(fpat,"%f",&valor);
-	   data[k][i]=valor;
-	   if(CONTROL>1) printf("%f\t",data[k][i]);
+#ifdef RANGE01
+	   data[k][i] = valor / 256.0;
+#else
+       data[k][i]=valor;
+#endif
+       if(CONTROL>1) printf("%f\t",data[k][i]);
 	   separador=getc(fpat);
 	   if(separador!=',') ungetc(separador,fpat);
   	 }
@@ -580,8 +584,8 @@ int train(char *filename){
              mse_test =propagar(test,0,PTEST,0);
              disc_test=discrete_error;
       }else  mse_test = disc_test = 0.;
-      fprintf(ferror,"%f\t%f\t%f\t%f\t",mse,mse_train,mse_valid,mse_test);
-      fprintf(ferror,"%f\t%f\t%f\n",disc_train,disc_valid,disc_test);
+        fprintf(ferror,"%f\t%f\t%f\t%f\t",mse,mse_train,mse_valid,mse_test);
+        fprintf(ferror,"%f\t%f\t%f\n",disc_train,disc_valid,disc_test);
       if(CONTROL) fflush(NULL);
       if(mse_valid<minimo_valid){
 	sinapsis_save(WTS+1);
