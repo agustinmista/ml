@@ -31,6 +31,7 @@ spiral
 *.x86_64
 *.hex
 anns/bp
+anns/bp-ranged
 dtree/c4.5-src/Src/average
 dtree/c4.5-src/Src/c4.5
 dtree/c4.5-src/Src/c4.5rules
@@ -53,6 +54,7 @@ dtree/datasets/parallel*
 dtree/datasets/diagonal*
 gen/*.names
 gen/*.data
+*.wts
 *.tree
 *.unpruned
 *.pdf
