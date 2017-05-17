@@ -47,11 +47,8 @@ gen/spiral
 *.log
 
 # Data files
-anns/datasets/*.test
-anns/datasets/*.report
+anns/datasets/dos_elipses/*
 anns/datasets/*.predic
-anns/datasets/*.mse
-anns/datasets/*.net
 dtree/datasets/parallel*
 dtree/datasets/diagonal*
 gen/*.names
