@@ -5,7 +5,7 @@ BASENAME=$DATASET/dos_elipses
 
 BP=./bp
 
-ITERATIONS=20
+ITERATIONS=11
 
 # create_netfile $iter $lr $mom
 function create_netfile {
@@ -53,8 +53,8 @@ function append_discrete_error {
 
     ERROR=$(grep -h discreto $BASENAME.*.$1.$2.report |
             awk -F ':' '{gsub(/(%| )/,""); print $2}' |
-            awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }')
-    
+            sort -n | awk ' { a[i++]=$1; } END { print a[int(i/2)]; }') 
+
     echo "$1, $2, $ERROR" >> $BASENAME.error.discrete
 
 }
@@ -69,17 +69,17 @@ rm -f $DATASET/*.report
 rm -f $DATASET/*.net
 rm -f $DATASET/*.error*
 
-for mom in 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9
+for mom in $(seq 0 0.05 0.95)
 do
-    for lr in 0.1 0.4 0.7 0.01 0.04 0.07 0.001
+    for lr in 0.1000 0.0794 0.0631 0.0501 0.0398 0.0316 0.0251 0.0200 0.0158 0.0126 0.0100 0.0079 0.0063 0.0050 0.0040 0.0032 0.0025 0.0020 0.0016 0.0013 0.0010 
     do
-        echo "======== TRANING BATCH [LR=$lr, MOM=$mom] ========"
+        echo $lr
+        echo "======== traning batch [lr=$lr, mom=$mom] ========"
         for i in $(seq 1 $ITERATIONS)
         do
             create_netfile $i $lr $mom
             train $i $lr $mom &
             sleep 0.1
-            
         done
         wait
         generate_avg_mse $lr $mom
